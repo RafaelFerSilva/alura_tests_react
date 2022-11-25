@@ -10,15 +10,20 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: npm i
 - task: Npm@1
-  displayName: npm run test
+  displayName: 'npm install'
   inputs:
-    command: 'custom'
-    customCommand: 'npm run test:ci'
+    verbose: false
+
+- task: Npm@1
+  displayName: Test
+  inputs:
+    command: custom
+    verbose: false
+    customCommand: run test:cid
 
 - task: PublishTestResults@2
   displayName: 'supply npm test results to pipelines'
   condition: succeededOrFailed() # because otherwise we won't know what tests failed
   inputs:
-    testResultsFiles: 'src/client-app/junit.xml'
+    testResultsFiles: 'junit.xml'
