@@ -32,4 +32,4 @@ steps:
   condition: succeededOrFailed()
   inputs:
     codeCoverageTool: "Cobertura"
-    summaryFileLocation: "$(Build.ArtifactStagingDirectory)/coverage/cobertura-coverage.xml"
+    summaryFileLocation: "$(Build.SourcesDirectory)/coverage/cobertura-coverage.xml"
