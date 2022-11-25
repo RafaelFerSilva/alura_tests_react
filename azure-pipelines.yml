@@ -20,7 +20,7 @@ steps:
   inputs:
     command: custom
     verbose: false
-    customCommand: npm run test:ci
+    customCommand: run test:ci
 
 - task: PublishTestResults@2
   displayName: 'supply npm test results to pipelines'
