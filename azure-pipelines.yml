@@ -14,8 +14,7 @@ steps:
   displayName: npm run test
   inputs:
     command: 'custom'
-    workingDir: 'src/client-app'
-    customCommand: 'run test:ci'
+    customCommand: 'npm run test:ci'
 
 - task: PublishTestResults@2
   displayName: 'supply npm test results to pipelines'
