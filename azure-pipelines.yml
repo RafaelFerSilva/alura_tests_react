@@ -33,4 +33,3 @@ steps:
   inputs:
     codeCoverageTool: "Cobertura"
     summaryFileLocation: "$(Build.ArtifactStagingDirectory)/coverage/cobertura-coverage.xml"
-    pathToSources: "$(Build.SourcesDirectory)/src"
