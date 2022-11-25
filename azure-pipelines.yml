@@ -10,6 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- script: npm i
 - task: Npm@1
   displayName: npm run test
   inputs:
