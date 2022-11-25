@@ -23,15 +23,13 @@ steps:
     customCommand: run test:ci
 
 - task: PublishTestResults@2
-  displayName: 'Publish Test Results '
+  displayName: 'supply npm test results to pipelines'
   condition: succeededOrFailed() # because otherwise we won't know what tests failed
   inputs:
     testResultsFiles: 'junit.xml'
-  condition: succeededOrFailed()
 
 - task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage results'
   inputs:
     codeCoverageTool: Cobertura
-    summaryFileLocation: '$(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml'
-  condition: succeededOrFailed()
+    summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
+
