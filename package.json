@@ -63,7 +63,7 @@
         "statements": 90
       }
     },
-    "coverageReporters": ["lcov"]
+    "coverageReporters": ["text", "cobertura"]
   },
   "devDependencies": {
     "jest-junit": "^15.0.0"
