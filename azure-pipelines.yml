@@ -27,3 +27,8 @@ steps:
   condition: succeededOrFailed() # because otherwise we won't know what tests failed
   inputs:
     testResultsFiles: 'junit.xml'
+
+- task: PublishCodeCoverageResults@1
+  inputs:
+    codeCoverageTool: Cobertura
+    summaryFileLocation: $(System.DefaultWorkingDirectory)/coverage/cobertura-coverage.xml
