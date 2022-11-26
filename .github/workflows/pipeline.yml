@@ -48,6 +48,6 @@ jobs:
         uses: slavcodev/coverage-monitor-action@1.2.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          clover_file: 'coverage/cobertura-coverage.xml'
+          clover_file: 'coverage/'
           threshold_alert: 85
           threshold_warning: 80
