@@ -69,7 +69,8 @@
     ],
     "coverageReporters": [
       "text",
-      "cobertura"
+      "clover",
+      "lcov"
     ]
   },
   "devDependencies": {
