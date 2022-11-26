@@ -38,3 +38,16 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: romeovs/lcov-reporter-action@v0.2.16
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          lcov-file: ./coverage/lcov.info
+
+      - name: Monitor coverage
+        uses: slavcodev/coverage-monitor-action@1.2.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          clover_file: 'coverage/cobertura-coverage.xml'
+          threshold_alert: 85
+          threshold_warning: 80
