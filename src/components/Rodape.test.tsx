@@ -11,6 +11,13 @@ jest.mock('../state/hook/useListaParticipantes', () => {
 })
 
 const mockNavegacao = jest.fn()
+const mockSorteio = jest.fn()
+
+jest.mock('../state/hook/useSorteador', () => {
+    return {
+        useSorteador: () => mockSorteio
+    }
+})
 
 jest.mock('react-router-dom', () => {
     return {
@@ -48,5 +55,20 @@ describe('Quando existe participantes suficientes', () => {
         fireEvent.click(botao)
         expect(mockNavegacao).toHaveBeenCalledTimes(1)
         expect(mockNavegacao).toHaveBeenCalledWith('/sorteio')
+        expect(mockSorteio).toHaveBeenCalledTimes(1)
+    })
+})
+
+describe('o Rodape com participantes suficientes', () => {
+    beforeEach(() => {
+        (useListaParticipantes as jest.Mock).mockReturnValueOnce(['Ana', 'Catarina', 'Jorel'])
+    })
+    test('habilita o início da brincadeira', async () => {
+        render(
+            <RecoilRoot>
+                <Rodape />
+            </RecoilRoot>)
+        const botao = screen.getByRole('button')
+        expect(botao).not.toBeDisabled()
     })
 })
