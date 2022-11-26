@@ -6,7 +6,9 @@ exports[`A página de configuração Deve ser renderizada corretamente 1`] = `
     class="card"
   >
     <section>
-      <form>
+      <form
+        class="grupo-input-btn"
+      >
         <input
           placeholder="Insira os nomes dos participantes"
           type="text"
@@ -20,12 +22,19 @@ exports[`A página de configuração Deve ser renderizada corretamente 1`] = `
         
       </form>
       <ul />
-      <footer>
+      <footer
+        class="rodape-configuracoes"
+      >
         <button
+          class="botao"
           disabled=""
         >
-          Iniciar Brincadeira
+          Iniciar brincadeira
         </button>
+        <img
+          alt="Sacolas de compras"
+          src="/imagens/sacolas.png"
+        />
       </footer>
     </section>
   </div>

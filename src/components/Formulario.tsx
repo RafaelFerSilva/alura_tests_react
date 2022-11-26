@@ -19,7 +19,7 @@ export default function Formulario() {
     }
 
     return (
-        <form onSubmit={adicionarParticipante}>
+        <form className="grupo-input-btn" onSubmit={adicionarParticipante}>
             <input ref={inputRef} value={nome} onChange={evento => setNome(evento.target.value)} type="text" placeholder="Insira os nomes dos participantes" />
             <button disabled={!nome}>Adicionar</button>
             {mensagemDeErro && <p role="alert">{mensagemDeErro}</p>}

@@ -30,14 +30,16 @@ describe('na pagina de sorteio', () => {
         (useListaParticipantes as jest.Mock).mockReturnValue(participantes);
         (useResultadoSorteio as jest.Mock).mockReturnValue(resultado);
     })
+
     test('todos os participantes podem exibir o seu amigo secreto', () => {
         render(<RecoilRoot>
             <Sorteio />
         </RecoilRoot>)
 
         const opcoes = screen.queryAllByRole('option')
-        expect(opcoes).toHaveLength(participantes.length)
+        expect(opcoes).toHaveLength(participantes.length + 1)
     })
+
     test('o amigo secreto é exibido quando solicitado', () => {
         render(<RecoilRoot>
             <Sorteio />
@@ -60,4 +62,6 @@ describe('na pagina de sorteio', () => {
         expect(amigoSecreto).toBeInTheDocument()
 
     })
+
+    
 })
